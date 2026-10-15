@@ -19,8 +19,6 @@ approach:
 ## Screens
 
 Everything below is a real screenshot at the B6's resolution (1072 × 1448, 300 dpi).
-The original high-fidelity designs of these screens
-are on the [design canvas](https://claude.ai/artifact/HWhQy65vs4VSHzGb8gnfDJ).
 
 <table>
   <tr>
