@@ -1,0 +1,25 @@
+# Google consumer apps: unusable or pointless on e-ink, and frequent background wakers.
+com.google.android.youtube
+com.google.android.apps.youtube.music
+com.google.android.videos
+com.google.android.apps.photos
+com.google.android.apps.maps
+com.google.android.gm
+com.google.android.apps.docs
+com.google.android.apps.tachyon
+com.google.android.googlequicksearchbox
+com.google.android.apps.googleassistant
+com.google.android.apps.wellbeing
+com.google.android.feedback
+com.google.android.projection.gearhead
+com.google.ar.core
+com.google.android.partnersetup
+com.google.android.apps.restore
+com.google.android.marvin.talkback
+com.google.android.apps.subscriptions.red
+com.google.android.apps.magazines
+com.google.android.apps.podcasts
+com.google.android.printservice.recommendation
+com.google.android.as
+com.google.android.as.oss
+com.google.android.apps.turbo

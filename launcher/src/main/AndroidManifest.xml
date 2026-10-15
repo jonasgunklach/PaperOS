@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Needed to see which apps exist on Android 11+. Only launchable apps are visible. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <!-- Quick settings: show radio state, set the front light (granted by the user in Settings). -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!-- Privileged (granted to /system/priv-app via tools/rom/files/privapp-permissions-paperos.xml;
+         every privileged permission requested here must be listed there, or the ROM won't boot). -->
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED"
+        xmlns:tools="http://schemas.android.com/tools" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
+        xmlns:tools="http://schemas.android.com/tools" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.NETWORK_AIRPLANE_MODE"
+        xmlns:tools="http://schemas.android.com/tools" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        xmlns:tools="http://schemas.android.com/tools" tools:ignore="ProtectedPermissions" />
+
+    <!--
+      Hardware rendering stays ON on purpose: HWUI reports a tight damage rectangle per frame
+      (eglSwapBuffersWithDamage), while a CPU-locked surface reports the whole buffer as damaged.
+      Precise damage comes from structure instead: everything that updates on its own is its own View.
+    -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Paper"
+        android:enableOnBackInvokedCallback="true">
+
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:clearTaskOnLaunch="true"
+            android:stateNotNeeded="true"
+            android:excludeFromRecents="true"
+            android:screenOrientation="unspecified"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboard|keyboardHidden|navigation|density|fontScale|uiMode"
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

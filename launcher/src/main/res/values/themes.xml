@@ -1,0 +1,23 @@
+<resources>
+    <!--
+      Everything that moves is switched off: window and activity transitions, the starting window,
+      and the wallpaper. Bars are white with dark icons for the moments they are revealed.
+    -->
+    <style name="Paper" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowShowWallpaper">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowContentTransitions">false</item>
+        <item name="android:windowActivityTransitions">false</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:colorAccent">@android:color/black</item>
+        <item name="android:colorPrimary">@android:color/black</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+        <!-- Battery Saver must never force a dark theme: black backgrounds mean full-panel updates. -->
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

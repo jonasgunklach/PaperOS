@@ -1,0 +1,10 @@
+# degoogle profile only. Breaks Play Store, Google sign-in, FCM push and apps that need them.
+# Install F-Droid / Obtainium first so you can still install and update apps.
+com.android.vending
+com.google.android.gms
+com.google.android.gsf
+com.google.android.syncadapters.contacts
+com.google.android.syncadapters.calendar
+com.google.android.backuptransport
+com.google.android.onetimeinitializer
+com.google.android.configupdater

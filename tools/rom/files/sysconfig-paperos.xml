@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PaperOS is the system shell: it may call platform-internal APIs (Bigme e-ink, light, locale). -->
+<config>
+    <hidden-api-whitelisted-app package="io.paperos.launcher"/>
+</config>

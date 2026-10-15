@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Thin wrapper: run mtkclient from its venv.
+d="$(cd "$(dirname "$0")" && pwd)"
+[[ -x "$d/mtkclient/.venv/bin/python" ]] || { echo "run tools/rom/setup-mtkclient.sh first"; exit 1; }
+exec "$d/mtkclient/.venv/bin/python" "$d/mtkclient/mtk.py" "$@"

@@ -1,0 +1,25 @@
+# Bigme ("xrz") and MediaTek extras seen on the B6 Color / HiBreak family.
+# Deliberately NOT listed (system depends on them or they drive gestures/standby):
+#   com.xrz.ebook.launcher   stock launcher — reportedly drives system gestures; keep as fallback
+#   com.xrz.standby          sleep screen
+#   com.xrz.settings / com.xrz.sys.control / com.xrz.res.service / com.xrz.appmanager
+#   com.xrz.note             handwriting notes (keep if you use the pen)
+#   com.mediatek.duraspeed   MediaTek background-app limiter: it *saves* battery
+#   com.sohu.inputmethod.sogou.oem   may be the only keyboard — install another one first
+com.xrz.appstore
+com.xrz.bookmall
+com.xrz.btranslate
+com.xrz.doc.translate
+com.xrz.video
+com.xrz.music
+com.xrz.weichat.filetransfer
+com.xrz.ai
+com.xrz.bigmecloud
+com.xrz.hoverballdemo
+com.xrz.voice.text
+com.xrz.mutidisplay
+com.b300.xrz.web
+com.iflytek.speechcloud
+com.mediatek.voicecommand
+com.test.logcollect
+cn.wps.moffice_eng

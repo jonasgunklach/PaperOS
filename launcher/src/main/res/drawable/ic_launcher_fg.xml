@@ -1,0 +1,8 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- A folded sheet of paper. -->
+    <path android:fillColor="#000000"
+        android:pathData="M36,30 L62,30 L74,42 L74,78 L36,78 Z M40,34 L40,74 L70,74 L70,45 L59,45 L59,34 Z M63,35.7 L63,41 L68.3,41 Z" />
+    <path android:fillColor="#000000" android:pathData="M45,52 L65,52 L65,55 L45,55 Z M45,60 L65,60 L65,63 L45,63 Z M45,68 L58,68 L58,71 L45,71 Z" />
+</vector>

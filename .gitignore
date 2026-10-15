@@ -1,0 +1,16 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+.kotlin/
+tools/debloat-state/
+backups/
+tools/rom/mtkclient/
+build/
+# mtkclient session files (hwparam.json holds device identifiers — never commit)
+.state
+hwparam.json
+# downloaded by tools/rom/setup-mtkclient.sh
+tools/rom/bin/

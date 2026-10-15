@@ -1,0 +1,92 @@
+# PaperOS ROM recipe: what to take out of Bigme's stock B6 firmware and what to put in.
+# Format:  remove <image>:<path>        delete a directory tree from that image
+#          app <image>:<dir> <apk>     install an APK as a system app at <dir>/<name>.apk
+#                                       (<apk> is relative to the repo root)
+# Images are the logical partitions inside `super`: system_a, system_ext_a, product_a, vendor_a.
+# Kept on purpose: Bigme e-ink/system services (xSettings, XrzSettings, xMenu, StandbyApp,
+# xrzResService, XRZAppManager), MediaTek SystemUI/telephony framework, WebView, mainline
+# modules, package installer, DocumentsUI, DuraSpeed (battery), Clock, XDict, Calendar provider.
+
+# --- Bigme apps
+remove system_a:/system/app/AppStroe
+remove system_a:/system/app/BookMall
+remove system_a:/system/app/BookSelf
+remove system_a:/system/app/ChatGPT
+remove system_a:/system/app/DaWoYuJi
+remove system_a:/system/app/DocTranslation
+remove system_a:/system/app/LevBoll
+remove system_a:/system/app/LogCollect
+remove system_a:/system/app/MutiDisplay
+remove system_a:/system/app/Translator
+remove system_a:/system/app/WifiTransfer_Book
+remove system_a:/system/app/XRZSoundReocrd
+remove system_a:/system/app/XRZWebExport
+remove system_a:/system/app/XRZImageExplorer
+remove system_a:/system/app/XVideo
+remove system_a:/system/app/xCloud
+remove system_a:/system/app/xMusicNew
+remove system_a:/system/app/xReaderPro
+remove system_a:/system/app/ColorDict
+remove system_a:/system/app/XRZ_Input
+# --- Stock launchers (PaperOS becomes the only home screen)
+remove system_a:/system/app/Launcher
+remove system_a:/system/app/xLauncher3
+# --- AOSP extras
+remove system_a:/system/app/EasterEgg
+remove system_a:/system/app/BasicDreams
+remove system_a:/system/priv-app/LiveWallpapersPicker
+remove system_a:/system/priv-app/MusicFX
+remove system_a:/system/priv-app/CallLogBackup
+remove system_ext_a:/app/AOVTestsApp
+remove product_a:/app/MtkWallpaperPicker
+remove product_a:/app/NonFrameworkLbs
+# --- Phone apps (the B6 has no SIM)
+remove system_ext_a:/priv-app/MtkDialer
+remove system_ext_a:/priv-app/MtkMms
+remove system_ext_a:/priv-app/CallRecorderService
+remove system_ext_a:/priv-app/VoiceCommand
+remove system_ext_a:/priv-app/VoiceUnlock
+remove system_ext_a:/priv-app/Omacp
+# --- Google
+remove system_a:/system/app/Gboard
+# GoogleExtShared stays: it provides the required system library android.ext.shared (boot loops without it)
+remove system_a:/system/app/GooglePrintRecommendationService
+remove system_a:/system/app/Googletts
+remove system_ext_a:/priv-app/GoogleFeedback
+remove system_ext_a:/priv-app/GoogleServicesFramework
+remove system_ext_a:/priv-app/EmergencyInfoGms
+remove system_ext_a:/priv-app/GmsSimProcessor
+remove product_a:/app/CalculatorGoogle
+remove product_a:/app/GoogleCalendarSyncAdapter
+remove product_a:/app/GoogleLocationHistory
+remove product_a:/app/Photos
+remove product_a:/app/QuickSearchBox
+remove product_a:/app/SpeechServicesByGoogle
+remove product_a:/priv-app/AndroidAutoStub
+remove product_a:/priv-app/AndroidSystemIntelligence
+remove product_a:/priv-app/ConfigUpdater
+remove product_a:/priv-app/FamilyLinkParentalControls
+remove product_a:/priv-app/GmsCore
+remove product_a:/priv-app/GoogleOneTimeInitializer
+remove product_a:/priv-app/GooglePartnerSetup
+remove product_a:/priv-app/GoogleRestore
+remove product_a:/priv-app/PersonalSafety
+remove product_a:/priv-app/Phonesky
+remove product_a:/priv-app/PrivateComputeServices
+remove product_a:/priv-app/Turbo
+
+# --- PaperOS and friends
+app system_a:/system/priv-app/PaperOS launcher/build/outputs/apk/release/launcher-release.apk
+app system_a:/system/app/FDroid build/rom/apks/org.fdroid.fdroid.apk
+app system_a:/system/app/HeliBoard build/rom/apks/helium314.keyboard.apk
+app system_a:/system/app/EinkBro build/rom/apks/info.plateaukao.einkbro.apk
+
+# --- System configuration
+# USB debugging on by default (Android still asks once on screen to trust the computer).
+prop vendor_a:/build.prop persist.sys.usb.config=mtp,adb
+# English unless the user picks another language in PaperOS.
+prop system_a:/system/build.prop persist.sys.locale=en-US
+# PaperOS permissions.
+file system_a:/system/etc/permissions/privapp-permissions-paperos.xml tools/rom/files/privapp-permissions-paperos.xml
+file system_a:/system/etc/default-permissions/default-permissions-paperos.xml tools/rom/files/default-permissions-paperos.xml
+file system_a:/system/etc/sysconfig/paperos.xml tools/rom/files/sysconfig-paperos.xml
