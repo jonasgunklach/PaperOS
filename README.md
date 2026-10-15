@@ -150,3 +150,8 @@ What we learned on the hardware is written up in [docs/ROM.md](docs/ROM.md), inc
   [lpunpack](https://github.com/unix3dgforce/lpunpack) are downloaded by `tools/rom/setup-mtkclient.sh`.
 - Bigme API findings build on [inksdk](https://github.com/imedwei/inksdk) and
   [hibreak-pro-color](https://github.com/awong-dev/hibreak-pro-color).
+
+## License
+
+PaperOS is released under the [MIT License](LICENSE). The bundled fonts keep their own license,
+the SIL Open Font License 1.1 (see `paperui/src/main/assets/fonts/`).
